@@ -1,7 +1,11 @@
 # zig-playground
 
-## Setup
+## Usage
 
 ```bash
+# init
 zig init
+
+# add package
+zig fetch --save <url>
 ```

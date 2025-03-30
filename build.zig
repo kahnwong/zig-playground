@@ -28,10 +28,15 @@ pub fn build(b: *std.Build) void {
 
     // This creates another `std.Build.Step.Compile`, but this one builds an executable
     // rather than a static library.
+    const zeit = b.dependency("zeit", .{});
+
     const exe = b.addExecutable(.{
         .name = "zig_playground",
         .root_module = exe_mod,
     });
+    exe.root_module.addImport("zeit", zeit.module("zeit"));
+
+    // deps
 
     // This declares intent for the executable to be installed into the
     // standard location when the user invokes the "install" step (the default
